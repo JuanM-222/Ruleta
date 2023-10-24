@@ -19,7 +19,14 @@ function App() {
 
   
 
-  function handleClick(e){
+  async function handleClick(e){
+
+    const data = await fetch('http://localhost:3000/number')
+
+    const grade = await data.json()
+
+    
+    console.log({grade})
 
     setIsWorking(true)
     
@@ -33,8 +40,8 @@ function App() {
 
     const radio = 150; // Radio de la ruleta
 
-    const anguloFinal = 360;
-
+    const anguloFinal = grade.grado;
+    console.log(anguloFinal)
     // Usamos setInterval para simular la animación
     const intervalo = setInterval(() => {
         anguloActual += velocidadRotacion;
@@ -46,7 +53,7 @@ function App() {
         bola.style.left = `calc(50% + ${x}px - 5px)`; // 5px es la mitad del ancho de la bola
         bola.style.top = `calc(50% + ${y}px - 5px)`; // 5px es la mitad de la altura de la bola
 
-        if (anguloActual >= anguloFinal) {
+        if (anguloActual >= anguloFinal+360 ) {
             clearInterval(intervalo); // Detener la animación cuando se alcance el ángulo final
             setIsWorking(false)
         }
