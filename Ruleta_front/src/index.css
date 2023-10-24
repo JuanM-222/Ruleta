@@ -1,0 +1,53 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+
+
+#root{
+  width: 100%;
+  min-height: 100vh;
+  height: 100%;
+  display: grid;
+  place-content: center;
+  background: rgb(251,145,63);
+  background: radial-gradient(circle, rgba(251,145,63,1) 29%, rgba(63,108,251,1) 100%);
+}
+
+.container{
+  position: relative;
+  display: grid;
+  place-content: center;
+  
+}
+
+.ruleta{
+  height: 450px;
+  transform: rotate(-6deg);
+}
+
+.bola{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  height: 20px;
+}
+
+.girar{
+  animation: girar 5s ease-in-out;
+}
+
+@keyframes girar {
+  from{
+    transform: rotate(0deg);
+  }
+  to{
+    transform: rotate(354deg);
+  }
+  
+}
+
+.hidden{
+  opacity: 0;
+}
