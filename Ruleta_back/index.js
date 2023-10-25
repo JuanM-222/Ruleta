@@ -32,7 +32,7 @@ app.get('/number',(req,res)=>{
 
     const indice = ruleta.indexOf(randoValue);
 
-    const gradoGiro =Math.floor((rotationNum * indice)-6);
+    const gradoGiro =Math.floor((rotationNum * indice));
 
     res.send({numero: randoValue,posicion:indice,grado:gradoGiro,num:rotationNum})
 

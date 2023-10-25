@@ -10,8 +10,23 @@
   height: 100%;
   display: grid;
   place-content: center;
-  background: rgb(251,145,63);
-  background: radial-gradient(circle, rgba(251,145,63,1) 29%, rgba(63,108,251,1) 100%);
+  background: linear-gradient(45deg,#0000 calc(25%/3), #36688d 0 calc(50%/3),
+      #0000 0 calc(250%/3), #36688d 0 calc(275%/3),
+      #0000 0),linear-gradient( 45deg,#36688d calc(25%/3), #0000 0 calc(50%/3),
+      #36688d 0 25%, #0000 0 75%,
+      #36688d 0 calc(250%/3), #0000 0 calc(275%/3),
+      #36688d 0),
+      linear-gradient(-45deg,#0000 calc(25%/3), #36688d 0 calc(50%/3),
+      #0000 0 calc(250%/3), #36688d 0 calc(275%/3),
+      #0000 0),linear-gradient(-45deg,#36688d calc(25%/3), #0000 0 calc(50%/3),
+      #36688d 0 25%, #0000 0 75%,
+      #36688d 0 calc(250%/3), #0000 0 calc(275%/3),
+      #36688d 0)
+      #f18904;
+background-size: 84px 84px;
+background-position: 0 0, 42px  42px;
+
+
 }
 
 .container{
@@ -23,7 +38,7 @@
 
 .ruleta{
   height: 450px;
-  transform: rotate(-6deg);
+  transform: rotate(0deg);
 }
 
 .bola{
@@ -50,4 +65,77 @@
 
 .hidden{
   opacity: 0;
+}
+
+button {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 10px 30px;
+  transition: 0.5s;
+  position: relative;
+  font-size: 17px;
+  background: #333;
+  border: none;
+  color: #fff;
+}
+
+button:hover {
+  letter-spacing: 0.25em;
+  background: #ff1867;
+  color: #ff1867;
+  box-shadow: 0 0 45px #ff1867;
+}
+
+button::before {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  background: #222222;
+}
+
+button span {
+  position: relative;
+  z-index: 1;
+}
+
+button i {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+
+button i::before {
+  content: '';
+  position: absolute;
+  border: 2px solid #ff1867;
+  width: 7px;
+  height: 4px;
+  top: -3.5px;
+  left: 80%;
+  background: #222222;
+  transform: translateX(-50%);
+  transition: 0.5s;
+}
+
+button:hover i::before {
+  width: 20px;
+  left: 20%;
+}
+
+button i::after {
+  content: '';
+  position: absolute;
+  border: 2px solid #ff1867;
+  width: 7px;
+  height: 4px;
+  bottom: -3.5px;
+  left: 20%;
+  background: #222222;
+  transform: translateX(-50%);
+  transition: 0.5s;
+}
+
+button:hover i::after {
+  width: 20px;
+  left: 80%;
 }

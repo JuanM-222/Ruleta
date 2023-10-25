@@ -38,7 +38,7 @@ function App() {
     // Velocidad de rotación (cuántos grados se moverá la bola por cada intervalo de tiempo)
     const velocidadRotacion = 1; // Puedes ajustar este valor
 
-    const radio = 150; // Radio de la ruleta
+    const radio = 160; // Radio de la ruleta
 
     const anguloFinal = grade.grado;
     console.log(anguloFinal)
@@ -78,7 +78,11 @@ function App() {
         <img className="ruleta" src={ruleta} alt="" />
         <img className="bola" src={bola} alt="" />
       </div>
-      <button onClick={handleClick} className={isWorking ? `hidden` : ''}>Rodar</button>
+      
+      <button onClick={handleClick} className={isWorking ? `hidden` : ''}>
+
+        <span>Girar!</span><i></i>
+      </button>
     </>
   );
 }
