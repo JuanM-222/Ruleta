@@ -139,3 +139,11 @@ button:hover i::after {
   width: 20px;
   left: 80%;
 }
+
+
+.buttons{
+  display: grid;
+  grid-template-columns: repeat(6,minmax(40px,100px));
+
+}
+

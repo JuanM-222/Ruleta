@@ -7,24 +7,24 @@ const app = express();
 
 app.use(cors())
 
-const PORT = process.env.PORT ?? 5000;
+// app.use(expre)
+
+const PORT = process.env.PORT ?? 3000;
 
 
-app.get('/',(req,res)=>{
+app.get('/', (req, res) => {
     res.send('Hola mundo')
 })
 
-
-
-app.get('/number',(req,res)=>{
+app.get('/number', (req, res) => {
 
     const min = 0;
     const max = 37;
 
-    const rotationNum = 360/37 
+    const rotationNum = 360 / 37
 
     const ruleta = [
-        0, 32, 15, 19, 4, 21, 2, 25, 17, 34, 6, 27, 13, 36, 11, 30, 8, 
+        0, 32, 15, 19, 4, 21, 2, 25, 17, 34, 6, 27, 13, 36, 11, 30, 8,
         23, 10, 5, 24, 16, 33, 1, 20, 14, 31, 9, 22, 18, 29, 7, 28, 12, 35, 3, 26
     ];
 
@@ -32,12 +32,20 @@ app.get('/number',(req,res)=>{
 
     const indice = ruleta.indexOf(randoValue);
 
-    const gradoGiro =Math.floor((rotationNum * indice));
+    const gradoGiro = Math.floor((rotationNum * indice));
 
-    res.send({numero: randoValue,posicion:indice,grado:gradoGiro,num:rotationNum})
+    numRandom = randoValue
+
+    res.send({ numero: randoValue, posicion: indice, grado: gradoGiro, num: rotationNum })
 
 });
 
+app.post('/apuesta', (req, res) => {
 
+    const { apuesta, numero } = req.body.json()
+    console.log({ apuesta, numero })
+
+
+})
 
 app.listen(PORT, () => console.log(`Listening in port ${PORT}`));
